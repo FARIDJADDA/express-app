@@ -1,19 +1,18 @@
 # EXPRESS
 
-Install Node 
+Install Node
 
-### Initialize npm 
+### Initialize npm
 
 ```console
 npm init
 ```
 
-### Initialize Express package 
+### Initialize Express package
 
 ```console
 npm i express
 ```
-
 
 # NODEMON
 
@@ -33,4 +32,10 @@ npm i -g nodemon
 "scripts": {
     "start": "nodemon app.js"
   },
+```
+
+and run server with nodemon
+
+```bash
+npm start
 ```
