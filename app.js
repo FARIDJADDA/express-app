@@ -1,14 +1,25 @@
 const path = require("path");
+const fs = require("fs");
 const express = require("express");
 const app = express();
 
+app.set("views", [
+  path.join(__dirname, "views"),
+  path.join(__dirname, "views2"),
+]);
+app.set("view engine", "toto");
+app.engine("toto", (path, options, callback) => {
+  fs.readFile(path, (err, data) => {
+    if (err) {
+      callback(err);
+    }
+    const template = data.toString().replace("%name", options.name);
+    callback(null, template);
+  });
+});
+
 app.get("/", (req, res) => {
-  //res.status(404);
-  res.set({ "content-type": "text/html", "x-my-header": "123" });
-  res.append("x-my-header-2", "123456789");
-  res.send(
-    "<html><head><title>Hello</title></head><body><h1>index File</h1></body></html>"
-  );
+  res.render("index", { name: "jean" });
 });
 
 app.listen(3000);
