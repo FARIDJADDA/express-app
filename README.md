@@ -36,6 +36,6 @@ npm i -g nodemon
 
 and run server with nodemon
 
-```bash
+```console
 npm start
 ```
