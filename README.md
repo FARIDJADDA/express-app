@@ -1,3 +1,11 @@
+---
+
+This app show you how Node.js work.
+In this application, we will show different packages like Express as well as libraries like Mongoose, a database like MongoDB and many other things like sockets.
+At the end I will make a copy of Twitter.
+
+---
+
 # EXPRESS
 
 Install Node
