@@ -8,11 +8,19 @@ At the end I will make a copy of Twitter.
 
 # EXPRESS
 
-FIRST Install Node.
+FIRST Install Node:
+https://nodejs.org/en/download/
 
+For dependencies put on your console (bash or zsh is better) : 
 
+---
+For change your default console
+Open Visual Studio Code.
+Press CTRL + SHIFT + P to open the Command Palette.
+Search for “Terminal: Select Default Shell”
+Select your preferred shell on Bash
 
-For dependencies put on your terminal :
+---
 
 ### Initialize npm
 
