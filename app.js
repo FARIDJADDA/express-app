@@ -1,29 +1,13 @@
-// const path = require("path");
-// const test = path.parse(
-//   path.join(__dirname, "new-folder", "second-new-folder", "index.js")
-// );
-// console.log(test);
-
 const path = require("path");
 const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  // res.send({ key1: "value1" }); // send and parse data
-  // res.json({ key2: "value2" }); // send data format json
-  // res.sendStatus(500); // send errors status message
-  res.sendFile(
-    path.join(__dirname, "index.html"),
-    {
-      headers: {
-        "content-type": "text/html",
-      },
-    },
-    (err) => {
-      if (err) {
-        res.sendStatus(500);
-      }
-    }
+  //res.status(404);
+  res.set({ "content-type": "text/html", "x-my-header": "123" });
+  res.append("x-my-header-2", "123456789");
+  res.send(
+    "<html><head><title>Hello</title></head><body><h1>index File</h1></body></html>"
   );
 });
 
