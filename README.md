@@ -8,7 +8,11 @@ At the end I will make a copy of Twitter.
 
 # EXPRESS
 
-Install Node
+FIRST Install Node.
+
+
+
+For dependencies put on your terminal :
 
 ### Initialize npm
 
@@ -20,6 +24,12 @@ npm init
 
 ```console
 npm i express
+```
+
+### Initialize ex Jade now Pug
+
+```console
+npm i pug
 ```
 
 # NODEMON
