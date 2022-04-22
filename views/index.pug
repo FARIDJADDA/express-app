@@ -1,34 +1,4 @@
-doctype html
-html(lang="en")
-  head
-    title Document
-  body
-    h1 Hello World 
-    div(class= ['test', 'test2'] id='1d1' )
-      p(style={color: 'crimson', background: 'purple'}) In div 
-    .container
-      .content 
-        p #{ name }
-        p= name 
-        if authentificated 
-          p i connect
-        else 
-          p not connect
-        case friends    
-          when 0
-            span I have no friends
-          when 1
-            span I have #{ firends } friend 
-          default 
-            span I have #{ friends } friends
-        each product in products 
-          .product 
-            h4= product.title 
-            p #{ product.content }
+extends layout.pug 
 
-    style.
-      .test {
-        font-size: 50px
-      }
-    script.
-      console.log('hello')
+block content 
+  h1 hello i'm content
