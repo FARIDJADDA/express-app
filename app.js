@@ -6,21 +6,24 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-
-
-const middleware1 = (req, res, next) => {
-  console.log("middleware1");
+const getCurrentUser = (req, res, next) => {
+  req.user = {
+    name: "toto",
+    authenticated: true,
+  };
   next();
 };
 
-const middleware2 = (req, res, next) => {
-  console.log("middleware2");
+const isAuthenticated = (req, res, next) => {
+  if (req.user.authenticated) {
+    console.log("ok");
+  } else {
+    console.log("not ok");
+  }
   next();
 };
 
-
-app.use("/foo", middleware1, middleware2);
-
+app.use("/foo", getCurrentUser, isAuthenticated);
 
 app.get("/foo", (req, res) => {
   res.render("index");
