@@ -9,7 +9,7 @@ app.set("view engine", "pug");
 const getCurrentUser = (req, res, next) => {
   req.user = {
     name: "toto",
-    authenticated: true,
+    authenticated: false,
   };
   next();
 };
@@ -18,15 +18,17 @@ const isAuthenticated = (req, res, next) => {
   if (req.user.authenticated) {
     console.log("ok");
   } else {
-    console.log("not ok");
+    next("route");
   }
   next();
 };
 
-app.use("/foo", getCurrentUser, isAuthenticated);
+app.get("/foo", getCurrentUser, isAuthenticated, (req, res) => {
+  res.render("index");
+});
 
 app.get("/foo", (req, res) => {
-  res.render("index");
+  res.sendStatus(403);
 });
 
 app.listen(3000);
