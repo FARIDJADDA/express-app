@@ -1,21 +1,29 @@
 const path = require("path");
 const express = require("express");
+const { use } = require("express/lib/application");
 const app = express();
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-app.get("/", (req, res) => {
-  res.render("index", {
-    name: "jean",
-    authentificated: true,
-    friends: 15,
-    products: [
-      { title: "product1", content: "content1" },
-      { title: "product2", content: "content2" },
-      { title: "product3", content: "content3" },
-    ],
-  });
+
+
+const middleware1 = (req, res, next) => {
+  console.log("middleware1");
+  next();
+};
+
+const middleware2 = (req, res, next) => {
+  console.log("middleware2");
+  next();
+};
+
+
+app.use("/foo", middleware1, middleware2);
+
+
+app.get("/foo", (req, res) => {
+  res.render("index");
 });
 
 app.listen(3000);
