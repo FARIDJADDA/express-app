@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
-const { use } = require("express/lib/application");
 const app = express();
+const morgan = require("morgan");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -9,9 +9,10 @@ app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan("short"));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("");
 });
 
 app.post("/", (req, res) => {
