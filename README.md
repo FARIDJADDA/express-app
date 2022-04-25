@@ -40,6 +40,12 @@ npm i express
 npm i pug
 ```
 
+### Initialize Morgan Middleware
+
+```console
+npm i morgan
+```
+
 # NODEMON
 
 ```console
